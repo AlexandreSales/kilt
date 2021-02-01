@@ -11,7 +11,6 @@ type
   tkiltDlgsWait = class(TFrame)
     rectMessage: TRectangle;
     aniWait: TAniIndicator;
-    procedure FrameResize(Sender: TObject);
   private
     { Private declarations }
   public
@@ -41,20 +40,6 @@ begin
   aniWait.enabled := false;
 
   inherited;
-end;
-
-procedure tkiltDlgsWait.FrameResize(Sender: TObject);
-begin
-  inherited;
-
-//  {$IFDEF IOS}
-//    pnl_message.height := self.height - ( self.height * 0.55);
-//  {$ELSEIF ANDROID}
-//    pnl_message.height := self.height - ( self.height * 0.55);
-//  {$ENDIF}
-//
-//  if self.width < pnl_message.width then
-//    pnl_message.width := self.width - 20;
 end;
 
 end.

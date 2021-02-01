@@ -245,12 +245,13 @@ begin
   else
     ffrmWait.Parent := parent;
 
-  ffrmWait.Align := talignlayout.client;
+  ffrmWait.Align := talignlayout.contents;
 
   ffrmWait.Visible  := true;
   ffrmWait.BringToFront;
 
   ffrmWait.SetFocus;
+  application.processmessages;
 end;
 
 class procedure tkiltDlgs.timerCloseMessage(sender: tobject);

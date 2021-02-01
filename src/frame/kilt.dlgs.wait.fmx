@@ -2,7 +2,6 @@ object kiltDlgsWait: TkiltDlgsWait
   Size.Width = 927.000000000000000000
   Size.Height = 728.000000000000000000
   Size.PlatformDefault = False
-  OnResize = FrameResize
   object rectMessage: TRectangle
     Align = Contents
     Fill.Color = xAA000000

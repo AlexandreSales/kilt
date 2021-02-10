@@ -13,7 +13,6 @@ var
   ffrmMessage: tframe;
   ffrmWait: tframe;
 
-
 type
   tprocClosedlg = reference to procedure(const result: integer);
   toptionsMessage = array of string;
@@ -176,6 +175,7 @@ begin
           direction := efcBtnOkShadow.direction;
           distance := efcBtnOkShadow.distance;
           opacity := efcBtnOkShadow.opacity;
+
           shadowcolor := efcBtnOkShadow.shadowcolor;
           softness := efcBtnOkShadow.softness;
         end;
@@ -205,9 +205,6 @@ begin
 
     if layMessageButtonCancel.visible  then
       ldblHeight := ldblHeight + layMessageButtonCancel.height + layMessageButtonCancel.margins.top;
-
-    //if ldblHeight > 0 then
-    //  ldblHeight := ldblHeight - 9;
 
     layMessage.height := cintDefaultHeigth + ldblHeight;
     layMessage.tagfloat := layMessage.height;
@@ -260,11 +257,12 @@ var
   lresultMessage: integer;
 begin
   ftimerClose.enabled := false;
-  freeandnil(ftimerClose);
+
   if not(sender is ttimer) then
     exit;
 
   lmsgShow := tmsgShow(ttimer(sender).tag);
+  freeandnil(ftimerClose);
 
   case lmsgShow of
   tmsAll:
@@ -302,12 +300,12 @@ class procedure tkiltDlgs.buttonResultDefaultClick(sender: tobject);
 
 var
   frmMessageSender: tframe;
+
 begin
   if not((sender is tbutton) or (sender is trectangle)) then
     exit;
 
   frmMessageSender := getparentframe(tfmxobject(sender), false);
-
   if frmMessageSender <> nil then
   begin
     if frmMessageSender is tkiltDlgsMessage then

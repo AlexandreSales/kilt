@@ -8,7 +8,7 @@ object kiltDlgsWait: TkiltDlgsWait
     Size.Width = 927.000000000000000000
     Size.Height = 728.000000000000000000
     Size.PlatformDefault = False
-    Stroke.Color = xAA000000
+    Stroke.Kind = None
     object aniWait: TAniIndicator
       Align = Center
     end

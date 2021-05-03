@@ -7,6 +7,8 @@ uses
   System.Classes,
   FMX.Forms,
   FMX.Types,
+  FMX.VirtualKeyboard,
+  FMX.Platform,
   kilt.dlgs.types;
 
 var
@@ -41,7 +43,7 @@ type
                                 ): Integer;
 
     class procedure showWait(
-                             const text: string = 'Aguarde alguns instantes...';
+                             const text: string = 'Aguarde...';
                              const parent: tform = nil
                              );
 
@@ -75,11 +77,13 @@ class function tkiltDlgs.showMessage( const text: string;
                                 const showCancelButton : boolean = false): Integer;
 const
   cintDefaultHeigth = 250;
-
 begin
   hideWait;
 
   application.mainform.focused := nil;
+  if parent <> nil then
+    parent.focused := nil;
+
   fprocClosedlg := procClosedlg;
 
   if ffrmMessage <> nil then
@@ -227,7 +231,7 @@ begin
   ffrmMessage.setfocus;
 end;
 
-class procedure tkiltDlgs.showWait(const text: string = 'Aguarde alguns instantes...'; const parent: tform = nil);
+class procedure tkiltDlgs.showWait(const text: string = 'Aguarde...'; const parent: tform = nil);
 begin
   application.mainform.focused := nil;
 

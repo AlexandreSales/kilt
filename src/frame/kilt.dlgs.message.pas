@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Objects, FMX.Controls.Presentation, System.Math, FMX.MultiView, FMX.Layouts,
-  FMX.Ani, FMX.Effects;
+  FMX.Ani, FMX.Effects, FMX.VirtualKeyboard, FMX.Platform, FMX.Edit;
 
 type
   tbuttonResultDefaultClick = procedure(sender: TObject) of object;
@@ -49,16 +49,21 @@ type
     recbtnNo: TRectangle;
     btnNo: TText;
     eftrectbtnNo: TShadowEffect;
+    edtFocus: TEdit;
     procedure btnDefaultResultClick(Sender: TObject);
     procedure layMessageBackgroudResize(Sender: TObject);
     procedure FrameClick(Sender: TObject);
+    procedure flaMessageFinish(Sender: TObject);
   private
     { Private declarations }
     fbuttonResultDefaultClick: tbuttonResultDefaultClick;
     fresultMessage: integer;
+    fvkautoShowMode: tvkautoShowMode;
   public
     { Public declarations }
     constructor Create(pOwner: TComponent); override;
+    destructor Destroy; override;
+
     property buttonResultDefaultClick: tbuttonResultDefaultClick read fbuttonResultDefaultClick write fbuttonResultDefaultClick;
     property resultMessage: integer read fresultMessage write fresultMessage;
   end;
@@ -92,8 +97,23 @@ end;
 constructor tkiltDlgsMessage.Create(pOwner: TComponent);
 begin
   inherited;
+  fvkautoShowMode := vkAutoShowMode;
+  vkAutoShowMode := tvkautoshowmode.Never;
+
   rectMessageShadow.opacity := 0;
   fresultMessage := mrNone;
+end;
+
+destructor tkiltDlgsMessage.Destroy;
+begin
+  vkAutoShowMode := fvkautoShowMode;
+
+  inherited;
+end;
+
+procedure tkiltDlgsMessage.flaMessageFinish(Sender: TObject);
+begin
+  edtFocus.setFocus;
 end;
 
 procedure tkiltDlgsMessage.FrameClick(Sender: TObject);

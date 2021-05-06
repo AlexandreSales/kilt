@@ -5,11 +5,13 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Objects, FMX.Controls.Presentation;
+  FMX.Objects, FMX.Controls.Presentation, FMX.Ani;
 
 type
   tkiltDlgsWait = class(TFrame)
     rectMessage: TRectangle;
+    Rectangle1: TRectangle;
+    Text1: TText;
     aniWait: TAniIndicator;
   private
     { Private declarations }

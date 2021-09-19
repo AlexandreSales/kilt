@@ -35,27 +35,44 @@ object kiltDlgsWait: TkiltDlgsWait
   object Rectangle1: TRectangle
     Align = Center
     Fill.Color = xD4000000
-    Size.Width = 152.000000000000000000
-    Size.Height = 106.000000000000000000
+    Size.Width = 273.000000000000000000
+    Size.Height = 180.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
     XRadius = 5.000000000000000000
     YRadius = 5.000000000000000000
+    object txt_tittle: TText
+      Align = Bottom
+      Margins.Left = 15.000000000000000000
+      Margins.Right = 15.000000000000000000
+      Margins.Bottom = 15.000000000000000000
+      Position.X = 15.000000000000000000
+      Position.Y = 114.000000000000000000
+      Size.Width = 243.000000000000000000
+      Size.Height = 51.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Family = 'Fira Sans'
+      TextSettings.Font.Size = 14.500000000000000000
+      TextSettings.FontColor = claWhite
+    end
+    object aniWait: TAniIndicator
+      Align = Center
+      StyleLookup = 'aniindicatorstyle'
+    end
     object Text1: TText
       Align = Bottom
-      Position.Y = 72.000000000000000000
-      Size.Width = 152.000000000000000000
-      Size.Height = 34.000000000000000000
+      Margins.Left = 15.000000000000000000
+      Margins.Right = 15.000000000000000000
+      Position.X = 15.000000000000000000
+      Position.Y = 79.000000000000000000
+      Size.Width = 243.000000000000000000
+      Size.Height = 35.000000000000000000
       Size.PlatformDefault = False
       Text = 'Aguarde...'
       TextSettings.Font.Family = 'Fira Sans'
       TextSettings.Font.Size = 16.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       TextSettings.FontColor = claWhite
-    end
-    object aniWait: TAniIndicator
-      Align = Center
-      StyleLookup = 'aniindicatorstyle'
     end
   end
 end

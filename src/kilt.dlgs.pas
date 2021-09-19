@@ -248,6 +248,9 @@ begin
 
   ffrmWait.Align := talignlayout.contents;
 
+  if text.trim <> 'Aguarde...' then
+    tkiltDlgsWait(ffrmWait).txt_tittle.text := text;
+
   ffrmWait.Visible  := true;
   ffrmWait.BringToFront;
 

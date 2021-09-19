@@ -11,8 +11,9 @@ type
   tkiltDlgsWait = class(TFrame)
     rectMessage: TRectangle;
     Rectangle1: TRectangle;
-    Text1: TText;
+    txt_tittle: TText;
     aniWait: TAniIndicator;
+    Text1: TText;
   private
     { Private declarations }
   public

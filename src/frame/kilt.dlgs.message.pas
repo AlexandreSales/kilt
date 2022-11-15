@@ -1,12 +1,16 @@
 unit kilt.dlgs.message;
+
 interface
+
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Objects, FMX.Controls.Presentation, System.Math, FMX.MultiView, FMX.Layouts,
   FMX.Ani, FMX.Effects, FMX.VirtualKeyboard, FMX.Platform, FMX.Edit;
-type
+
+  type
   tbuttonResultDefaultClick = procedure(sender: TObject) of object;
+
   tkiltDlgsMessage = class(tframe)
     imgConfirm: TImage;
     imgWarning: TImage;
@@ -62,18 +66,19 @@ type
     property buttonResultDefaultClick: tbuttonResultDefaultClick read fbuttonResultDefaultClick write fbuttonResultDefaultClick;
     property resultMessage: integer read fresultMessage write fresultMessage;
   end;
+
 var
   kiltDlgsMessage: TkiltDlgsMessage;
-implementation
-{$R *.fmx}
 
+implementation
+
+{$R *.fmx}
 
 procedure TkiltDlgsMessage.btnDefaultResultClick(Sender: TObject);
 begin
   inherited;
   if not((sender is tbutton) or (sender is trectangle)) then
     exit;
-
   if assigned(fbuttonResultDefaultClick) then
   begin
     if sender is tbutton then
@@ -84,6 +89,7 @@ begin
     fbuttonResultDefaultClick(sender);
   end;
 end;
+
 constructor tkiltDlgsMessage.Create(pOwner: TComponent);
 begin
   inherited;
@@ -92,10 +98,10 @@ begin
   rectMessageShadow.opacity := 0;
   fresultMessage := mrNone;
 end;
+
 destructor tkiltDlgsMessage.Destroy;
 begin
   vkAutoShowMode := fvkautoShowMode;
-
   inherited;
 end;
 

@@ -31,16 +31,15 @@ type
     { private declarations }
   public
     { public declarations }
-    class function showMessage(
-                                const text: string;
+    class function showMessage( const text: string;
                                 const title: string = '';
                                 const router: string = '';
                                 const msgType: tmsgType = tminformacao;
                                 const procClosedlg: tprocClosedlg = nil;
                                 const parent: tform = nil;
                                 const options: toptionsMessage = [];
-                                const showCancelButton : boolean = false
-                                ): Integer;
+                                const showCancelButton : boolean = false;
+                                const cancelButtonTitle: string = 'Cancelar'): Integer;
 
     class procedure showWait(
                              const text: string = 'Aguarde...';
@@ -74,7 +73,8 @@ class function tkiltDlgs.showMessage( const text: string;
                                 const procClosedlg: tprocClosedlg = nil;
                                 const parent: tform = nil;
                                 const options: toptionsMessage = [];
-                                const showCancelButton : boolean = false): Integer;
+                                const showCancelButton : boolean = false;
+                                const cancelButtonTitle: string = 'Cancelar'): Integer;
 const
   cintDefaultHeigth = 250;
 begin
@@ -125,7 +125,7 @@ begin
 
     layMessageButtonCancel.visible := (msgType in [tmpergunta, tmperguntaimportante]) or showCancelButton;
     if showCancelButton then
-      btnNo.text := 'Cancelar';
+      btnNo.text := cancelButtonTitle;
 
     imgQuestion.visible := msgType in [tmPergunta, tmMulti];
     imgQuestionImportant.visible := msgType in [tmPerguntaImportante];
